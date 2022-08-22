@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
 )
 
 from . import views
-
+from .otp import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
@@ -20,4 +20,6 @@ urlpatterns = [
     path('', views.overview),
     path('publish_product/<sku>', views.publish_product),
     path('unpublish_product/<sku>', views.unpublish_product),
+    path("<phone>/", getPhoneNumberRegistered.as_view(), name="OTP Gen"),
+    path("time_based/<phone>/", getPhoneNumberRegistered_TimeBased.as_view(), name="OTP Gen Time Based"),
 ]

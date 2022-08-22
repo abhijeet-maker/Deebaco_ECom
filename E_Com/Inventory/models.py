@@ -33,3 +33,10 @@ class Product(models.Model):
         Returns the url to access a particular instance of Family.
         """
         return reverse('family-detail-view', args=[str(self.pr_name)])
+class phoneModel(models.Model):
+    Mobile = models.IntegerField(blank=False)
+    isVerified = models.BooleanField(blank=False, default=False)
+    counter = models.IntegerField(default=0, blank=False)   # For HOTP Verification
+
+    def __str__(self):
+        return str(self.Mobile)
