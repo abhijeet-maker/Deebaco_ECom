@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %} {% include 'admin_nav.html' %} {% load static %}
+
+<section class="section">
+    <section class="container">
+        <div class="card z-depth-2">
+            <div class="card-content">
+
+                <h5>The Marketplace</h5>
+
+                <p class="custom-font-1">Please check & confirm new biddings.</p>
+                <a href="/dashboard" class="btn waves-effect waves-light pink" style="margin-top: 1rem;">
+                    <i class="material-icons left"></i>View Dashboard</a>
+                <a href="/confirmbiddings" class="btn waves-effect waves-light pink" style="margin-top: 1rem;">
+                    <i class="material-icons left"></i>Check new biddings</a>
+                <img class="responsive-img fade-in"
+                     src="{% static 'How-to-Start-an-Online-Auction-Marketplace-Core-Features.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+</section>
+<footer class="page-footer indigo darken-2">
+    <div class="container center custom-font-1">
+        © 2019 Copyright Text
+    </div>
+</footer>
+{% endblock content %}

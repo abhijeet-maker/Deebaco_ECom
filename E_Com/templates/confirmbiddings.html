@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block content %} {% include 'admin_nav.html' %} {% load static %}
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+
+<section class="section">
+    <section class="container">
+        <div class="card z-depth-2">
+            <div class="card-content">
+
+                <table id="result_list" class="sortable">
+                    <thead>
+                    <tr>
+
+
+                        <th scope="col" class="sortable column-user">
+
+
+                            <div class="text">User</div>
+                            <div class="clear"></div>
+                        </th>
+                        <th scope="col" class="sortable column-offer">
+
+
+                            <div class="text">Offer</div>
+                            <div class="clear"></div>
+                        </th>
+
+                        <th scope="col" class="sortable column-placement">
+
+
+                            <div class="text">Placement</div>
+                            <div class="clear"></div>
+                        </th>
+                        <th scope="col" class="sortable column-offer">
+
+
+                            <div class="text">BID Id</div>
+                            <div class="clear"></div>
+                        </th>
+                        <th scope="col" class="action-checkbox-column">
+
+                            <div class="text"><span>Confirmed</span></div>
+                            <div class="clear"></div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for p in context %}
+                    <tr>
+                        <th class="field-user nowrap"><a href="/confirmbid/{{ p.id}}/">{{ p.user__username }}</a></th>
+                        <td class="field-offer">{{ p.offer }}</td>
+                        <td class="field-placement nowrap">{{ p.placement__placement_title }}</td>
+                        <td class="field-placement nowrap">{{ p.id }}</td>
+                        <td class="field-placement nowrap">{{ p.confirmed }}</td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</section>
+
+<footer class="page-footer indigo darken-2">
+    <div class="container center custom-font-1">
+        © 2019 Copyright Text
+    </div>
+</footer>
+{% endblock content %}
