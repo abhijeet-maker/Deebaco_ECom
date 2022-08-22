@@ -1,4 +1,5 @@
 from django.contrib.auth.models import Permission
+from django.http import JsonResponse
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
@@ -32,8 +33,7 @@ def overview(request):
         'token-refresh': 'api/token/refresh/',
 
     }
-
-    return Response(api_urls)
+    return JsonResponse(api_urls)
 
 
 @api_view(['GET'])
